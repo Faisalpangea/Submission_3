@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Premier League</title>
+    <meta name="description" content="Premier League" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/materialize.min.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#00897B" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navigasi -->
+    <nav class="teal lighten-1" role="navigation">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo" id="logo-container"></a>
+            <a href="./index.html" class="sidenav-trigger" data-target="nav-mobile">
+                <i class="material-icons">arrow_back</i>
+            </a>
+            <ul class="topnav right hide-on-med-and-down"></ul>
+            <ul class="sidenav" id="nav-mobile"></ul>
+        </div>
+    </nav>
+    <!-- Akhir Navigasi -->
+
+    <div id="loader" class="center"></div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="center-align" style="margin-top: 10px;">
+                    <div id="teamInfoImage"></div>
+                </div>
+                <div class="card">
+                    <div class="card-tabs">
+                        <ul class="tabs">
+                            <li class="tab col s6 m6 l6"> <a class="active" href="#teamInfoDetail"> Overview </a> </li>
+                            <li class="tab col s6 m6 l6"> <a href="#teamInfo"> Squad </a> </li>
+                        </ul>
+                    </div>
+
+                    <div id="overview">
+                        <table class="highlight">
+                            <thead></thead>
+                            <tbody id="teamInfoDetail"></tbody>
+                        </table>
+                    </div>
+
+                    <div id="squad">
+                        <table class="striped">
+                            <thead>
+
+                            </thead>
+                            <tbody id="teamInfo"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 
+    <div class="container" class="center-align">
+        <h4>Detail Team</h4>
+        <div class="card" id="teamInfoImage"></div>
+
+        <div class="card-tabs">
+
+        </div>
+
+        <div class="card content">
+            <table id=""></table>
+        </div>
+        <div class="card content">
+            <table id=""></table>
+        </div>
+    </div> -->
+
+    <script type="text/javascript" src="https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/idb.js"></script>
+    <script src="js/db.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            var id = Number(urlParams.get("id"));
+            getTeam(endpoint_detailTeam + id);
+
+        });
+
+
+        const btnOverview = document.getElementById("teamInfoDetail");
+        const btnPlayers = document.getElementById("teamInfo");
+
+        btnOverview.onclick = () => {
+            console.log("btn overview");
+            btnPlayers.style.display = "none";
+            btnOverview.style.display = "block";
+        }
+
+        btnPlayers.onclick = () => {
+            console.log("btn player");
+            btnOverview.style.display = "none";
+            btnPlayers.style.display = "blobk";
+        }
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+</body>
+
+</html>
