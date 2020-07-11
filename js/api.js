@@ -139,7 +139,6 @@ function showtMatchesTeam(data) {
     `
   })
   document.getElementById("matchesTeam").innerHTML = matchesHTML;
-  loadImageTeams();
 }
 
 function showTeam(data) {
